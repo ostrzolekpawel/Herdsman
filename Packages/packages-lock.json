@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.osirisgames.eventbroker": {
+      "version": "https://github.com/ostrzolekpawel/UnityEventBroker.git?path=Assets/EventBroker",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "6ccf94c81c6fbada19fec29e9b2e1251c56ca856"
+    },
     "com.unity.2d.animation": {
       "version": "7.0.4",
       "depth": 1,
