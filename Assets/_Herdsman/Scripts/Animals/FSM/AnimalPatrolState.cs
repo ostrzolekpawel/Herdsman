@@ -28,8 +28,12 @@ namespace Herdsman.Animals
 
         public AnimalState Execute()
         {
-            // move position to random place, use IMovement interface to describe moving
-            var newPosition = _movement.Move(_targetPosition); // send current position?
+            var newPosition = _movement.Move(_targetPosition);
+            if (Vector2.Distance(newPosition, _targetPosition) < 0.001f)
+            {
+                return AnimalState.Idle;
+            }
+
             _animal.Move(newPosition);
             return AnimalState.Patrol;
         }

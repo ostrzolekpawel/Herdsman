@@ -9,7 +9,7 @@ namespace Herdsman.Animals
         private readonly List<AnimalState> _allowedTransitions = new List<AnimalState> { AnimalState.Patrol, AnimalState.Follow };
         private readonly IAnimal _animal;
         private float _idleTime;
-        private const float IDLE_DURATION = 5f;
+        private const float IDLE_DURATION = 2f;
 
         public AnimalIdleState(IAnimal animal)
         {

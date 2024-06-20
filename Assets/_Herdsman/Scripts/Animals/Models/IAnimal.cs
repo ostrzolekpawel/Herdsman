@@ -11,5 +11,6 @@ namespace Herdsman.Animals
         void Tick();
         void Follow();
         void Move(Vector3 position);
+        void Reset();
     }
 }

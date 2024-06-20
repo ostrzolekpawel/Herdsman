@@ -25,6 +25,11 @@ namespace Herdsman.Animals
         {
         }
 
+        public void Reset()
+        {
+
+        }
+
         public void Move(Vector3 newPosition)
         {
             OnchangePosition?.Invoke(newPosition);

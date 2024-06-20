@@ -3,5 +3,6 @@
     public interface IAnimalView
     {
         void Collect();
+        void TryFollow();
     }
 }

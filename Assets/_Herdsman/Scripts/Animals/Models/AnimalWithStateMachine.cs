@@ -39,5 +39,12 @@ namespace Herdsman.Animals
         {
             _stateMachine?.ChangeState(AnimalState.Follow);
         }
+
+        public void Reset()
+        {
+            _animal.Reset();
+            _stateMachine?.ChangeState(AnimalState.Idle);
+            OnchangePosition?.Invoke(Vector3.zero);
+        }
     }
 }

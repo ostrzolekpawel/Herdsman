@@ -1,10 +1,10 @@
 ﻿namespace Herdsman.Animals
 {
-    public class CollectAnimalSignal
+    public class AnimalCollectInYardSignal
     {
         public IAnimal Animal { get; }
 
-        public CollectAnimalSignal(IAnimal animal)
+        public AnimalCollectInYardSignal(IAnimal animal)
         {
             Animal = animal;
         }
