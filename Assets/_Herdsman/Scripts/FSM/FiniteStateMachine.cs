@@ -23,7 +23,7 @@ namespace Herdsman.FSM
 
             if (_currentState != null && !_currentState.CanChange(stateType))
             {
-                throw new InvalidOperationException($"Cannot transition from {_currentState.GetType().Name} to {nextState.GetType().Name}");
+                return;
             }
 
             _currentState?.Exit();
