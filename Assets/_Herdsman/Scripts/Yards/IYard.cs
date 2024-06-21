@@ -1,4 +1,6 @@
-﻿namespace Herdsman.Animals
+﻿using Herdsman.Animals;
+
+namespace Herdsman.Yards
 {
     public interface IYard
     {

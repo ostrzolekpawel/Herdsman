@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Herdsman.Animals;
+using UnityEngine;
 
-namespace Herdsman.Animals
+namespace Herdsman.Yards
 {
     public class Yard : MonoBehaviour, IYard
     {
