@@ -7,16 +7,14 @@ namespace Herdsman.Player
     {
         [SerializeField] private HeroView _heroView;
         [SerializeField] private HeroDataConfig _heroDataConfig;
+        [SerializeField] private HerdDataConfig _herdDataConfig;
 
         private IMovement _movement;
 
-        private void Awake()
+        public void Init(IEventBus signalBus)
         {
             _movement = new MoveTowardsObjectMovement(_heroView.transform, _heroDataConfig.Speed);
-        }
-
-        public void Init(IEventBus signalBus, IHerd herd)
-        {
+            var herd = new Herd(_herdDataConfig, signalBus);
             var hero = new HeroBuilder(_heroDataConfig, _movement, herd, signalBus).Build();
 
             _heroView.Init(hero);

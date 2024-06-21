@@ -24,10 +24,10 @@ namespace Herdsman.Player
             CollectRange = data.CollectRange;
 
             _signalBus.Subscribe<MoveHeroToTargetSignal>(TakeTargetPosition);
-            _signalBus.Subscribe<AnimalFollowPlayer>(CollectAnimalToHerd);
+            _signalBus.Subscribe<AnimalFollowPlayerSignal>(CollectAnimalToHerd);
         }
 
-        private void CollectAnimalToHerd(AnimalFollowPlayer signal)
+        private void CollectAnimalToHerd(AnimalFollowPlayerSignal signal)
         {
             Collect(signal.Animal);
         }
@@ -51,7 +51,9 @@ namespace Herdsman.Player
         public void Dispose()
         {
             _signalBus.Unsubscribe<MoveHeroToTargetSignal>(TakeTargetPosition);
-            _signalBus.Unsubscribe<AnimalFollowPlayer>(CollectAnimalToHerd);
+            _signalBus.Unsubscribe<AnimalFollowPlayerSignal>(CollectAnimalToHerd);
+
+            _herd.Dispose();
         }
     }
 }
