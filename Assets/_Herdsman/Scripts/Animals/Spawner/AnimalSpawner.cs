@@ -1,4 +1,5 @@
-﻿using Herdsman.Player;
+﻿using Herdsman.Intervals;
+using Herdsman.Player;
 using Herdsman.PositionProviders;
 using OsirisGames.EventBroker;
 using UnityEngine;

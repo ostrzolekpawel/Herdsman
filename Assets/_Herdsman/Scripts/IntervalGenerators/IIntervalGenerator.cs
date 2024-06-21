@@ -1,4 +1,4 @@
-﻿namespace Herdsman.Animals
+﻿namespace Herdsman.Intervals
 {
     public interface IIntervalGenerator
     {
