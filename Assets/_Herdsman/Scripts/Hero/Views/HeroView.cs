@@ -4,6 +4,7 @@ using System;
 
 namespace Herdsman.Player
 {
+    [RequireComponent(typeof(CircleCollider2D))]
     public class HeroView : MonoBehaviour
     {
         [SerializeField] private CircleCollider2D _collider;
@@ -13,6 +14,11 @@ namespace Herdsman.Player
         public void Init(IHero hero)
         {
             _hero = hero ?? throw new ArgumentNullException(nameof(hero));
+
+            if (_collider == null)
+            {
+                _collider = GetComponent<CircleCollider2D>();
+            }
 
             _collider.radius = _hero.CollectRange;
             _hero.OnchangePosition += ChangePosition;
