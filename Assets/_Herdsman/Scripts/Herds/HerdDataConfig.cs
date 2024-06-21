@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Herdsman
+namespace Herdsman.Herds
 {
     [CreateAssetMenu(fileName = "HerdDataConfig", menuName = "Configs/HerdDataConfig")]
     public class HerdDataConfig : ScriptableObject, IHerdData

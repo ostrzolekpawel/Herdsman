@@ -1,7 +1,7 @@
 ﻿using Herdsman.Animals;
 using System;
 
-namespace Herdsman
+namespace Herdsman.Herds
 {
     public interface IHerd : IDisposable
     {

@@ -1,4 +1,4 @@
-﻿namespace Herdsman
+﻿namespace Herdsman.Herds
 {
     public interface IHerdData
     {

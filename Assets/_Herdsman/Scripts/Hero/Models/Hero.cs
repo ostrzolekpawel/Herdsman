@@ -2,6 +2,7 @@
 using UnityEngine;
 using Herdsman.Animals;
 using OsirisGames.EventBroker;
+using Herdsman.Herds;
 
 namespace Herdsman.Player
 {

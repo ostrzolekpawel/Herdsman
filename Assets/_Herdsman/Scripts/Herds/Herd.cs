@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Herdsman.Animals;
 using OsirisGames.EventBroker;
 
-namespace Herdsman
+namespace Herdsman.Herds
 {
     public class Herd : IHerd
     {
