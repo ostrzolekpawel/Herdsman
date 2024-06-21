@@ -1,4 +1,5 @@
-﻿using Herdsman.PositionProviders;
+﻿using Herdsman.Movement;
+using Herdsman.PositionProviders;
 
 namespace Herdsman.Animals
 {

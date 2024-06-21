@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Herdsman
+namespace Herdsman.Movement
 {
     public class MoveTowardsObjectMovement : IMovement
     {
@@ -16,14 +16,6 @@ namespace Herdsman
         public Vector2 Move(Vector2 targetPosition)
         {
             return Vector2.MoveTowards(_transform.position, targetPosition, _speed * Time.deltaTime);
-        }
-    }
-
-    public class TeleportMovement : IMovement
-    {
-        public Vector2 Move(Vector2 targetPosition)
-        {
-            return targetPosition;
         }
     }
 }

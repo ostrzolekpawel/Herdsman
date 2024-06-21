@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Herdsman
+namespace Herdsman.Movement
 {
     public interface IMovement
     {
