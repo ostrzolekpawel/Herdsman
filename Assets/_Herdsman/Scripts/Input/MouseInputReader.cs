@@ -1,4 +1,5 @@
-﻿using OsirisGames.EventBroker;
+﻿using Herdsman.Player;
+using OsirisGames.EventBroker;
 using UnityEngine;
 
 namespace Herdsman

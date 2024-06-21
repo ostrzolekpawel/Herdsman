@@ -1,4 +1,4 @@
-﻿namespace Herdsman
+﻿namespace Herdsman.Player
 {
     public interface IHeroData
     {

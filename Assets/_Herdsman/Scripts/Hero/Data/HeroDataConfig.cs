@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Herdsman
+namespace Herdsman.Player
 {
     [CreateAssetMenu(fileName = "HeroDataConfig", menuName = "Configs/HeroDataConfig")]
     public class HeroDataConfig : ScriptableObject, IHeroData
