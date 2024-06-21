@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Herdsman
+namespace Herdsman.Utils
 {
     [Serializable]
     public class NotifiableValue<T> where T : struct, IEquatable<T>

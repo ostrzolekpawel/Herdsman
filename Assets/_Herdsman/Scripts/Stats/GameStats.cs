@@ -1,4 +1,5 @@
 ﻿using Herdsman.Animals;
+using Herdsman.Utils;
 using OsirisGames.EventBroker;
 
 namespace Herdsman.Stats

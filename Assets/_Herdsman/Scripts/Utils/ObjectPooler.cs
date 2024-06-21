@@ -2,7 +2,7 @@
 using System;
 using UnityEngine;
 
-namespace Herdsman
+namespace Herdsman.Utils
 {
     public class ObjectPooler<T> where T : UnityEngine.Object
     {

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Herdsman.Utils;
+using UnityEngine;
 
 namespace Herdsman.Animals
 {
