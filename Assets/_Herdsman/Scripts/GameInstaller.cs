@@ -7,6 +7,10 @@ using Herdsman.Stats;
 
 namespace Herdsman
 {
+    /// <summary>
+    /// Didn't use any DI Container because for this project would be overkill, 
+    /// decided to inject dependencies this way, it's still DI.
+    /// </summary>
     public class GameInstaller : MonoBehaviour
     {
         [SerializeField] private AnimalSpawner _animalSpawner;

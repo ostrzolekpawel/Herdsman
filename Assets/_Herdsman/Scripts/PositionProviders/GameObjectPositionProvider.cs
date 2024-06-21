@@ -1,5 +1,4 @@
-﻿using Herdsman.PositionProviders;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace Herdsman.PositionProviders
