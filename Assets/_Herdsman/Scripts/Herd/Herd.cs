@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Herdsman.Animals;
+using OsirisGames.EventBroker;
 
 namespace Herdsman
 {
@@ -7,11 +9,20 @@ namespace Herdsman
     {
         private readonly int _capacity;
         private readonly List<IAnimal> _animals;
+        private readonly IEventBus _signalBus;
 
-        public Herd(IHerdData config)
+        public Herd(IHerdData config, IEventBus signalBus)
         {
             _animals = new List<IAnimal>();
-            _capacity = config.Capacity;    
+            _capacity = config.Capacity;
+            _signalBus = signalBus;
+
+            _signalBus.Subscribe<AnimalCollectInYardSignal>(ReleaseFromHerd);
+        }
+
+        private void ReleaseFromHerd(AnimalCollectInYardSignal signal)
+        {
+            Release(signal.Animal);
         }
 
         public void Collect(IAnimal animal)
@@ -23,6 +34,11 @@ namespace Herdsman
 
             _animals.Add(animal);
             animal.Follow();
+        }
+
+        public void Dispose()
+        {
+            _signalBus.Unsubscribe<AnimalCollectInYardSignal>(ReleaseFromHerd);
         }
 
         public void Release(IAnimal animal)
