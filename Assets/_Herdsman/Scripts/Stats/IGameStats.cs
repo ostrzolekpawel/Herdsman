@@ -1,8 +1,10 @@
-﻿namespace Herdsman
+﻿using System;
+
+namespace Herdsman
 {
-    public interface IGameStats
+    public interface IGameStats : IDisposable
     {
-        int Score { get; }
+        NotifiableValue<int> Score { get; }
         void AddScore(int additionalScore);
         void UpdateScore(int newScore);
     }
