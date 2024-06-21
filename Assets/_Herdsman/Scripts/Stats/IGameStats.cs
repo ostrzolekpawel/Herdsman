@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Herdsman
+namespace Herdsman.Stats
 {
     public interface IGameStats : IDisposable
     {

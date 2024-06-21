@@ -1,7 +1,7 @@
 ﻿using Herdsman.Animals;
 using OsirisGames.EventBroker;
 
-namespace Herdsman
+namespace Herdsman.Stats
 {
     public class GameStats : IGameStats
     {

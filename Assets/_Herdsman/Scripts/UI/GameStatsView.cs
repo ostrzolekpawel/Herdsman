@@ -1,7 +1,8 @@
-﻿using TMPro;
+﻿using Herdsman.Stats;
+using TMPro;
 using UnityEngine;
 
-namespace Herdsman
+namespace Herdsman.UI
 {
     public class GameStatsView : MonoBehaviour
     {

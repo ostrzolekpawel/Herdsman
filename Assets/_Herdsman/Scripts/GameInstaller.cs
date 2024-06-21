@@ -2,6 +2,8 @@
 using UnityEngine;
 using Herdsman.Animals;
 using Herdsman.Player;
+using Herdsman.UI;
+using Herdsman.Stats;
 
 namespace Herdsman
 {
