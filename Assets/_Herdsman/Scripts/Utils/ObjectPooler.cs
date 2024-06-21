@@ -46,4 +46,47 @@ namespace Herdsman
             OnRelease?.Invoke(@object);
         }
     }
+
+    public class ObjectPooler<T, U> where T : UnityEngine.Object, U
+    {
+        private readonly Queue<U> _available = new Queue<U>();
+        private readonly Transform _parent;
+        private readonly T _prefab;
+
+        public event Action<U> OnCreate;
+        public event Action<U> OnTake;
+        public event Action<U> OnRelease;
+
+        public ObjectPooler(T prefab, Transform parent = null)
+        {
+            _parent = parent;
+            _prefab = prefab;
+        }
+
+        public U TakeFromPool()
+        {
+            U pooled = default;
+
+            if (_available.Count != 0)
+            {
+                pooled = _available.Dequeue();
+                OnTake?.Invoke(pooled);
+            }
+            else if (_prefab != null)
+            {
+                pooled = _parent != null ? UnityEngine.Object.Instantiate(_prefab, _parent) :
+                                            UnityEngine.Object.Instantiate(_prefab) ;
+                OnCreate?.Invoke(pooled);
+                OnTake?.Invoke(pooled);
+            }
+
+            return pooled;
+        }
+
+        public void ReleaseToPool(U @object)
+        {
+            _available.Enqueue(@object);
+            OnRelease?.Invoke(@object);
+        }
+    }
 }
