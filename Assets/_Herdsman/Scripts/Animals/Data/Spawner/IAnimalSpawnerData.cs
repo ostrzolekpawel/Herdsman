@@ -2,6 +2,8 @@
 {
     public interface IAnimalSpawnerData
     {
-        float Interval { get; }
+        float MinInterval { get; }
+        float MaxInterval { get; }
+        int PrespawnedAnimalCount { get; }
     }
 }

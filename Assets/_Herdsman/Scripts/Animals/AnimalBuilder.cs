@@ -35,7 +35,7 @@ namespace Herdsman.Animals
 
         public IAnimal Build()
         {
-            var animal = new Animal(_animalData);
+            var animal = new Animal(_animalData, _positionProvider);
 
             if (_useStateMachine)
             {

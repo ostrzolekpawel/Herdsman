@@ -12,7 +12,7 @@ namespace Herdsman.Animals
         public AnimalWithStateMachine(IAnimal animal, IFinishStateMachine<AnimalState> stateMachine)
         {
             _animal = animal;
-            _stateMachine = stateMachine;
+            _stateMachine = stateMachine; // throw errors if null
         }
 
         public Action<Vector3> OnchangePosition
@@ -27,7 +27,7 @@ namespace Herdsman.Animals
         public void Tick()
         {
             _animal.Tick();
-            _stateMachine?.Execute();
+            _stateMachine.Execute();
         }
 
         public void Move(Vector3 newPosition)
@@ -37,14 +37,13 @@ namespace Herdsman.Animals
 
         public void Follow()
         {
-            _stateMachine?.ChangeState(AnimalState.Follow);
+            _stateMachine.ChangeState(AnimalState.Follow);
         }
 
         public void Reset()
         {
             _animal.Reset();
-            _stateMachine?.ChangeState(AnimalState.Idle);
-            OnchangePosition?.Invoke(Vector3.zero);
+            _stateMachine.ChangeState(AnimalState.Idle);
         }
     }
 }

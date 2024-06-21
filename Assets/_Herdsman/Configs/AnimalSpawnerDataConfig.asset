@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c60be3f0e7a21de42872d4df82f50d89, type: 3}
   m_Name: AnimalSpawnerDataConfig
   m_EditorClassIdentifier: 
-  _interval: 5
+  _minInterval: 1
+  _maxInterval: 5
+  _prespawnedAnimalCount: 5

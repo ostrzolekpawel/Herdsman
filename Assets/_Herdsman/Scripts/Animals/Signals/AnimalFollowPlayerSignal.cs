@@ -1,10 +1,10 @@
 ﻿namespace Herdsman.Animals
 {
-    public class AnimalFollowPlayer
+    public class AnimalFollowPlayerSignal
     {
         public IAnimal Animal { get; }
 
-        public AnimalFollowPlayer(IAnimal animalView)
+        public AnimalFollowPlayerSignal(IAnimal animalView)
         {
             Animal = animalView;
         }

@@ -9,12 +9,21 @@ namespace Herdsman.Animals
         private IAnimal _animal;
         private IEventBus _signalBus;
 
+        public Transform Transform { get; private set; }
+
+        private void Awake()
+        {
+            Transform = transform;
+        }
+
         public void Init(IAnimal animal, IEventBus signalBus)
         {
             _animal = animal ?? throw new ArgumentNullException(nameof(animal));
             _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus));
 
             _animal.OnchangePosition += ChangePosition;
+
+            _animal.Reset();
         }
 
         private void ChangePosition(Vector3 newPosition)
@@ -34,12 +43,22 @@ namespace Herdsman.Animals
 
         public void TryFollow()
         {
-            _signalBus.Fire(new AnimalFollowPlayer(_animal));
+            _signalBus.Fire(new AnimalFollowPlayerSignal(_animal));
         }
 
         private void OnDestroy()
         {
             _animal.OnchangePosition -= ChangePosition;
+        }
+
+        public void Activate()
+        {
+            gameObject.SetActive(true);
+        }
+
+        public void Deactivate()
+        {
+            gameObject.SetActive(false);
         }
     }
 }

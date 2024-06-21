@@ -2,7 +2,7 @@
 {
     public interface IAnimalSpawner
     {
-        float Interval { get; }
         void Spawn();
+        void Prespawn(int count);
     }
 }
