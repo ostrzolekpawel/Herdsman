@@ -1,4 +1,5 @@
 ﻿using Herdsman.Utils;
+using System;
 using UnityEngine;
 
 namespace Herdsman.Animals
@@ -10,7 +11,12 @@ namespace Herdsman.Animals
 
         public AnimalPool(AnimalView prefab, Transform parent, IAnimalFactory animalFactory)
         {
-            _animalFactory = animalFactory;
+            if (prefab == null)
+            {
+                throw new ArgumentNullException(nameof(prefab), "Prefab used for object pooling cannot be null.");
+            }
+
+            _animalFactory = animalFactory ?? throw new ArgumentNullException(nameof(animalFactory), "AnimalFactory cannot be null.");
             _pool = new ObjectPooler<AnimalView, IAnimalView>(prefab, parent);
 
             _pool.OnCreate += CreateAnimal;

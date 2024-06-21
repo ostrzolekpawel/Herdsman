@@ -1,6 +1,7 @@
 ﻿using Herdsman.Animals;
 using Herdsman.Utils;
 using OsirisGames.EventBroker;
+using System;
 
 namespace Herdsman.Stats
 {
@@ -12,7 +13,7 @@ namespace Herdsman.Stats
 
         public GameStats(IEventBus signalBus)
         {
-            _signalBus = signalBus;
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
             _signalBus.Subscribe<AnimalCollectInYardSignal>(IncreaseScore);
         }
 

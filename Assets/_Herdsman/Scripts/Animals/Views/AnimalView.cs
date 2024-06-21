@@ -18,8 +18,8 @@ namespace Herdsman.Animals
 
         public void Init(IAnimal animal, IEventBus signalBus)
         {
-            _animal = animal ?? throw new ArgumentNullException(nameof(animal));
-            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus));
+            _animal = animal ?? throw new ArgumentNullException(nameof(animal), "Animal cannot be null.");
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
 
             _animal.OnchangePosition += ChangePosition;
 

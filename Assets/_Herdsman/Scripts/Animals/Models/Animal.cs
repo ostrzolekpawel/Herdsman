@@ -14,9 +14,14 @@ namespace Herdsman.Animals
 
         public Animal(IAnimalData data, IPositionProvider positionProvider)
         {
+            if (data == null)
+            {
+                throw new ArgumentNullException(nameof(data), "Animal data cannot be null.");
+            }
+
             Points = data.Points;
             Speed = data.Speed;
-            _positionProvider = positionProvider;
+            _positionProvider = positionProvider ?? throw new ArgumentNullException(nameof(positionProvider), "PositionProvider cannot be null.");
         }
 
         public void Tick()

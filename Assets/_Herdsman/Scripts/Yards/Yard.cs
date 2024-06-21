@@ -7,7 +7,7 @@ namespace Herdsman.Yards
     {
         public void CollectAnimal(IAnimalView animalView)
         {
-            animalView.Collect();
+            animalView?.Collect();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

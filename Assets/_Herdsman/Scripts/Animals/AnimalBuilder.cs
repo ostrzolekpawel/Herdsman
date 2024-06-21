@@ -1,5 +1,6 @@
 ﻿using Herdsman.Movement;
 using Herdsman.PositionProviders;
+using System;
 
 namespace Herdsman.Animals
 {
@@ -14,12 +15,12 @@ namespace Herdsman.Animals
 
         public AnimalBuilder(IPositionProvider positionProvider, IPositionProvider heroPositionProvider, IAnimalData animalData)
         {
-            _positionProvider = positionProvider;
-            _heroPositionProvider = heroPositionProvider;
-            _animalData = animalData;
+            _positionProvider = positionProvider ?? throw new ArgumentNullException(nameof(positionProvider), "PositionProvider cannot be null.");
+            _heroPositionProvider = heroPositionProvider ?? throw new ArgumentNullException(nameof(heroPositionProvider), "HeroPositionProvider cannot be null.");
+            _animalData = animalData ?? throw new ArgumentNullException(nameof(animalData), "AnimalData cannot be null.");
             _useStateMachine = false;
 
-            _movement = new TeleportMovement();
+            _movement = new TeleportMovement(); // default movement
         }
 
         public AnimalBuilder WithStateMachine()

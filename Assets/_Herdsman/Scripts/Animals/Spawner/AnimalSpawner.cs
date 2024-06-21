@@ -2,6 +2,7 @@
 using Herdsman.Player;
 using Herdsman.PositionProviders;
 using OsirisGames.EventBroker;
+using System;
 using UnityEngine;
 
 namespace Herdsman.Animals
@@ -28,9 +29,15 @@ namespace Herdsman.Animals
 
         public void Init(IEventBus signalBus, IAnimalSpawnerData data)
         {
+            if (data == null)
+            {
+                 throw new ArgumentNullException(nameof(signalBus), "Animal Spawner Data cannot be null.");
+            }
+
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
+
             _positionProvider = new RandomBoundSectorPositionProvider(SECTOR_SIZE, _fieldCollider.bounds, _yardCollider.bounds);
             _heroPositionProvider = new GameObjectPositionProvider(_heroView.transform);
-            _signalBus = signalBus;
 
             _animalFactory = new AnimalFactory(_positionProvider, _heroPositionProvider, _animalConfig, _signalBus);
             _animalPool = new AnimalPool(_animalPrefab, transform, _animalFactory);

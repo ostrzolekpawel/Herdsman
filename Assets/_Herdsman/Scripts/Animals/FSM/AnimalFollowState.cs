@@ -1,6 +1,7 @@
 ﻿using Herdsman.FSM;
 using Herdsman.Movement;
 using Herdsman.PositionProviders;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,9 +16,9 @@ namespace Herdsman.Animals
 
         public AnimalFollowState(IAnimal animal, IPositionProvider heroPositionProvider, IMovement movement)
         {
-            _animal = animal;
-            _heroPositionProvider = heroPositionProvider;
-            _movement = movement;
+            _animal = animal ?? throw new ArgumentNullException(nameof(animal), "Animal cannot be null.");
+            _heroPositionProvider = heroPositionProvider ?? throw new ArgumentNullException(nameof(heroPositionProvider), "HeroPositionProvider cannot be null.");
+            _movement = movement ?? throw new ArgumentNullException(nameof(movement), "Movement cannot be null.");
         }
 
         public bool CanChange(AnimalState nextState)

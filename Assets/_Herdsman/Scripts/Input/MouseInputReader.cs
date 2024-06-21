@@ -1,5 +1,6 @@
 ﻿using Herdsman.Player;
 using OsirisGames.EventBroker;
+using System;
 using UnityEngine;
 
 namespace Herdsman
@@ -11,7 +12,7 @@ namespace Herdsman
 
         public void Init(IEventBus signalBus)
         {
-            _signalBus = signalBus;
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
         }
 
         public void ReadInput()

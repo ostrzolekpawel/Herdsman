@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Herdsman.Movement
 {
@@ -10,6 +11,10 @@ namespace Herdsman.Movement
         public MoveTowardsObjectMovement(Transform transform, float speed)
         {
             _speed = speed;
+            if (!transform)
+            {
+                 throw new ArgumentNullException(nameof(transform), "Transform cannot be null.");
+            }
             _transform = transform;
         }
 

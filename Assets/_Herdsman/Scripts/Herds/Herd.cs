@@ -11,11 +11,16 @@ namespace Herdsman.Herds
         private readonly List<IAnimal> _animals;
         private readonly IEventBus _signalBus;
 
-        public Herd(IHerdData config, IEventBus signalBus)
+        public Herd(IHerdData data, IEventBus signalBus)
         {
+            if (data == null)
+            {
+                 throw new ArgumentNullException(nameof(data), "Herd Data cannot be null.");
+            }
+
             _animals = new List<IAnimal>();
-            _capacity = config.Capacity;
-            _signalBus = signalBus;
+            _capacity = data.Capacity;
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
 
             _signalBus.Subscribe<AnimalCollectInYardSignal>(ReleaseFromHerd);
         }

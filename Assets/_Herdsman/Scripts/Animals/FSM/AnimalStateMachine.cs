@@ -8,7 +8,7 @@ namespace Herdsman.Animals
     {
         public AnimalStateMachine(IAnimal animal, IPositionProvider positionProvider, IPositionProvider heroPositionProvider, IMovement movement)
         {
-            AddState(AnimalState.Idle, new AnimalIdleState(animal));
+            AddState(AnimalState.Idle, new AnimalIdleState());
             AddState(AnimalState.Patrol, new AnimalPatrolState(animal, positionProvider, movement));
             AddState(AnimalState.Follow, new AnimalFollowState(animal, heroPositionProvider, movement));
 

@@ -1,4 +1,5 @@
 ﻿using Herdsman.Stats;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -13,8 +14,7 @@ namespace Herdsman.UI
 
         public void Init(IGameStats gameStats)
         {
-            _gameStats = gameStats;
-
+            _gameStats = gameStats ?? throw new ArgumentNullException(nameof(gameStats), "GameStats cannot be null.");
             _gameStats.Score.OnChange += UpdateScore;
 
             UpdateScore(0);

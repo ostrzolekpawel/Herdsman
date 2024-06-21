@@ -11,9 +11,9 @@ namespace Herdsman.Animals
 
         public AnimalEventHandler(IEventBus signalBus, IAnimalFactory animalFactory, IAnimalPool animalPool)
         {
-            _signalBus = signalBus;
-            _animalFactory = animalFactory;
-            _animalPool = animalPool;
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
+            _animalFactory = animalFactory ?? throw new ArgumentNullException(nameof(animalFactory), "AnimalFactory cannot be null.");
+            _animalPool = animalPool ?? throw new ArgumentNullException(nameof(animalPool), "AnimalPool cannot be null.");
             _signalBus.Subscribe<AnimalCollectInYardSignal>(OnAnimalCollected);
         }
 

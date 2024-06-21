@@ -19,9 +19,14 @@ namespace Herdsman.Player
 
         public Hero(IHeroData data, IHerd herd, IMovement movement, IEventBus signalBus)
         {
-            _herd = herd;
-            _movement = movement;
-            _signalBus = signalBus;
+            if (data == null)
+            {
+                throw new ArgumentNullException(nameof(data), "Hero Data cannot be null.");
+            }
+
+            _herd = herd ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
+            _movement = movement ?? throw new ArgumentNullException(nameof(movement), "Movement cannot be null.");
+            _signalBus = signalBus ?? throw new ArgumentNullException(nameof(signalBus), "SignalBus cannot be null.");
 
             CollectRange = data.CollectRange;
 

@@ -1,4 +1,5 @@
 ﻿using Herdsman.FSM;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,14 +8,8 @@ namespace Herdsman.Animals
     public class AnimalIdleState : IState<AnimalState>
     {
         private readonly List<AnimalState> _allowedTransitions = new List<AnimalState> { AnimalState.Patrol, AnimalState.Follow };
-        private readonly IAnimal _animal;
         private float _idleTime;
         private const float IDLE_DURATION = 2f;
-
-        public AnimalIdleState(IAnimal animal)
-        {
-            _animal = animal;
-        }
 
         public void Enter()
         {

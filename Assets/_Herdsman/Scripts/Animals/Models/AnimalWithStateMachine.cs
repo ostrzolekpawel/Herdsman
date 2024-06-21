@@ -11,8 +11,8 @@ namespace Herdsman.Animals
 
         public AnimalWithStateMachine(IAnimal animal, IFinishStateMachine<AnimalState> stateMachine)
         {
-            _animal = animal;
-            _stateMachine = stateMachine; // throw errors if null
+            _animal = animal ?? throw new ArgumentNullException(nameof(animal), "Animal cannot be null.");
+            _stateMachine = stateMachine ?? throw new ArgumentNullException(nameof(stateMachine), "StateMachine cannot be null.");
         }
 
         public Action<Vector3> OnchangePosition
