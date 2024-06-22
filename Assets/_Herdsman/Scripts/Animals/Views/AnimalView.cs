@@ -26,7 +26,7 @@ namespace Herdsman.Animals
             _animal.Reset();
         }
 
-        private void ChangePosition(Vector3 newPosition)
+        private void ChangePosition(Vector2 newPosition)
         {
             transform.position = newPosition;
         }

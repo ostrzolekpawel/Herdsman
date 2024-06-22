@@ -15,7 +15,7 @@ namespace Herdsman.Animals
             _stateMachine = stateMachine ?? throw new ArgumentNullException(nameof(stateMachine), "StateMachine cannot be null.");
         }
 
-        public Action<Vector3> OnchangePosition
+        public Action<Vector2> OnchangePosition
         {
             get => _animal.OnchangePosition;
             set => _animal.OnchangePosition = value;
@@ -30,7 +30,7 @@ namespace Herdsman.Animals
             _stateMachine.Execute();
         }
 
-        public void Move(Vector3 newPosition)
+        public void Move(Vector2 newPosition)
         {
             _animal.Move(newPosition);
         }

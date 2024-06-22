@@ -5,12 +5,12 @@ namespace Herdsman.Animals
 {
     public interface IAnimal
     {
-        Action<Vector3> OnchangePosition { get; set; }
+        Action<Vector2> OnchangePosition { get; set; }
         int Points { get; }
         float Speed { get; }
         void Tick();
         void Follow();
-        void Move(Vector3 position);
+        void Move(Vector2 position);
         void Reset();
     }
 }

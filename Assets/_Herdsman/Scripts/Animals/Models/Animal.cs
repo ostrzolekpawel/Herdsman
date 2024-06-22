@@ -8,7 +8,7 @@ namespace Herdsman.Animals
     {
         private readonly IPositionProvider _positionProvider;
 
-        public Action<Vector3> OnchangePosition { get; set; }
+        public Action<Vector2> OnchangePosition { get; set; }
         public int Points { get;}
         public float Speed { get; }
 
@@ -37,7 +37,7 @@ namespace Herdsman.Animals
             Move(_positionProvider.GetPosition());
         }
 
-        public void Move(Vector3 newPosition)
+        public void Move(Vector2 newPosition)
         {
             OnchangePosition?.Invoke(newPosition);
         }
